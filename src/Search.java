@@ -13,13 +13,16 @@ public class Search {
 
         int pointer = 1;
         while (lst[pointer] < y)   {
-            pointer = Math.min(pointer*2, lst.length);
+            pointer = Math.min(pointer*2, lst.length - 1);
         }
 
         int maxP = pointer;
         int minP = pointer/2;
 
         while (lst[pointer] != y)  {
+            if (pointer == y)   {
+                return pointer;
+            }
             if (maxP - minP == 1) {
                 System.out.println("The value you are looking for, is not in the list.");
                 return maxP;
